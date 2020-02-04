@@ -1,3 +1,3 @@
-const DIFFICULT = 4;
+const DIFFICULTY = 4;
 
-module.exports = { DIFFICULT };
+module.exports = { DIFFICULTY };

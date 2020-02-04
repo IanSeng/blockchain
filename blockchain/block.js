@@ -1,8 +1,8 @@
 const SHA256 = require("crypto-js/sha256");
-const { DIFFICULT } = require('../config')
+const { DIFFICULTY } = require('../config')
 
 class Block {
-  constructor(timestamp, lastHash, hash, data) {
+  constructor(timestamp, lastHash, hash, data, nonce) {
     this.timestamp = timestamp;
     this.lastHash = lastHash;
     this.hash = hash;
@@ -34,7 +34,7 @@ class Block {
       const timestamp = Date.now();
       hash = Block.hash(timestamp, lastHash, data, nonce);
   
-    } while (hash.substring(0, DIFFICULT) !== '0'.repeat(DIFFICULT));
+    } while (hash.substring(0, DIFFICULTY) !== '0'.repeat(DIFFICULTY));
     
     return new this(timestamp, lastHash, hash, data, nonce);
   }

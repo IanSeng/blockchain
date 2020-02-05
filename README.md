@@ -13,6 +13,12 @@ npm install
 npm run dev 
 ``` 
 
+## Start up the project 
+
+```
+npm run start 
+```
+
 ## To run test environment 
 Go into a terminal window in the root directory of this repository and run 
 
@@ -20,5 +26,3 @@ Go into a terminal window in the root directory of this repository and run
 npm install 
 npm run test 
 ``` 
-
-

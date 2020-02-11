@@ -35,16 +35,15 @@ class P2pServer {
     console.log("Socket connected");
 
     this.messageHandler(socket);
-    this.sendChain(socket)
-
+    this.sendChain(socket);
   }
 
   messageHandler(socket) {
     socket.on("message", message => {
       const data = JSON.parse(message);
       //console.log("data", data);
-
-      this.blockchain.replaceChain(data)
+s
+      this.blockchain.replaceChain(data);
     });
   }
 
@@ -53,7 +52,7 @@ class P2pServer {
   }
 
   syncChains() {
-      this.sockets.forEach(socket => this.sendChain(socket));
+    this.sockets.forEach(socket => this.sendChain(socket));
   }
 }
 

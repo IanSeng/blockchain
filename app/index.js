@@ -24,6 +24,8 @@ app.post('/mine',(req, res) => {
     res.redirect('/blocks');
 })
 
+//console.log(HTTP_PORT);
+
 // app.listen make sure the application is running 
 app.listen(HTTP_PORT, () => console.log(`Listening on port ${HTTP_PORT}`))
 p2pServer.listen();

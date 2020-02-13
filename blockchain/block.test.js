@@ -14,11 +14,16 @@ describe("Block", () => {
   it("sets the `lastHash` to match the hash of the last block", () => {
     expect(block.lastHash).toEqual(lastBlock.hash);
   });
-  
+
   it("generates a hash that matches the difficulty", () => {
-    console.log(block.difficulty)
-    console.log(block.hash.substring(0, block.difficulty) + "hi")
-    expect(block.hash.substring(0, block.difficulty)).toEqual('0'.repeat(block.difficulty));
-   
+    expect(block.hash.substring(0, block.difficulty)).toEqual(
+      "0".repeat(block.difficulty)
+    );
+  });
+
+  it("lower the difficulty for slowly mined blocks", () => {
+    expect(
+      Block.adjustDifficulty(block, block.timestamp + 360000)
+    ).toEqual(block.difficulty - 1);
   });
 });

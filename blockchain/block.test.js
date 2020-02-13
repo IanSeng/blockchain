@@ -16,9 +16,9 @@ describe("Block", () => {
   });
   
   it("generates a hash that matches the difficulty", () => {
-    console.log(block.diffuculty)
+    console.log(block.difficulty)
     console.log(block.hash.substring(0, block.difficulty) + "hi")
-    expect(block.hash.substring(0, block.diffuculty)).toEqual('0'.repeat(block.diffuculty));
+    expect(block.hash.substring(0, block.difficulty)).toEqual('0'.repeat(block.difficulty));
    
   });
 });

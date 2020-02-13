@@ -26,4 +26,10 @@ describe("Block", () => {
       Block.adjustDifficulty(block, block.timestamp + 360000)
     ).toEqual(block.difficulty - 1);
   });
+
+  it("raise the difficulty for slowly mined blocks", () => {
+    expect(
+      Block.adjustDifficulty(block, block.timestamp)
+    ).toEqual(block.difficulty + 1);
+  });
 });

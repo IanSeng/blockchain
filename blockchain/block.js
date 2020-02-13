@@ -2,13 +2,13 @@ const SHA256 = require("crypto-js/sha256");
 const { DIFFICULTY, MINE_RATE } = require('../config')
 
 class Block {
-  constructor(timestamp, lastHash, hash, data, nonce, diffuculty) {
+  constructor(timestamp, lastHash, hash, data, nonce, difficulty) {
     this.timestamp = timestamp;
     this.lastHash = lastHash;
     this.hash = hash;
     this.data = data;
     this.nonce = nonce;
-    this.diffuculty = diffuculty || DIFFICULTY;
+    this.difficulty = difficulty || DIFFICULTY;
   }
   // for debug purpose
   toString() {
@@ -34,9 +34,10 @@ class Block {
     
     do {
       nonce++;
-      const timestamp = Date.now();
+      timestamp = Date.now();
       difficulty = Block.adjustDifficulty(lastBlock, timestamp);
       hash = Block.hash(timestamp, lastHash, data, nonce, difficulty);
+      
   
     } while (hash.substring(0, difficulty) !== '0'.repeat(difficulty));
     
@@ -55,7 +56,7 @@ class Block {
   static adjustDifficulty(lastBlock, currentTime) {
     let { difficulty } = lastBlock;
     difficulty = lastBlock.timestamp + MINE_RATE > currentTime ? difficulty + 1 : difficulty -1;
-    return difficulty
+    return difficulty;
   }
 }
 

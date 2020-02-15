@@ -31,7 +31,7 @@ class Transaction {
 
   static signTransaction(transaction, senderWallet) {
     transaction.input = {
-      timestamp: Data.now(),
+      timestamp: Date.now(),
       amount: senderWallet.balance,
       address: senderWallet.publicKey,
       signature: senderWallet.sign(ChainUitl.hash(transaction.outputs))

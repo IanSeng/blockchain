@@ -21,10 +21,21 @@ class Transaction {
           amount: senderWallet.balance - amount,
           address: senderWallet.publicKey
         },
-        { amount, address: recipient}
+        { amount, address: recipient }
       ]
     );
+
+    Transaction.signTransaction(transaction, senderWallet);
     return transaction;
+  }
+
+  static signTransaction(transaction, senderWallet) {
+    transaction.input = {
+      timestamp: Data.now(),
+      amount: senderWallet.balance,
+      address: senderWallet.publicKey,
+      signature: senderWallet.sign(ChainUitl.hash(transaction.outputs))
+    };
   }
 }
 

@@ -26,7 +26,7 @@ describe("Transaction", () => {
     ).toEqual(amount);
   });
 
-  describe("transcating with an amunt that exceeds the balance", () => {
+  describe("transcating with an amount that exceeds the balance", () => {
     beforeEach(() => {
       amount = 50000;
       transcation = Transcation.newTransaction(wallet, recipient, amount);

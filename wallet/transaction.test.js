@@ -12,9 +12,6 @@ describe("Transaction", () => {
   });
 
   it("output the `amount` substracted from the wallet balance", () => {
-    console.log(
-      transcation.outputs
-    );
     expect(
       transcation.outputs.find(output => output.address === wallet.publicKey)
         .amount
@@ -23,10 +20,10 @@ describe("Transaction", () => {
 
   it("outputs the `amount` added to the recipient", () => {
     expect(
-      transcation.output
+      transcation.outputs
         .find(output => output.address === recipient)
-        .amount.toEqual(amount)
-    );
+        .amount
+    ).toEqual(amount);
   });
 
   describe("transcating with an amunt that exceeds the balance", () => {

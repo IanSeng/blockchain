@@ -20,7 +20,7 @@ class Transaction {
         {
           amount: senderWallet.balance - amount,
           address: senderWallet.publicKey
-        }
+        },
         { amount, address: recipient}
       ]
     );

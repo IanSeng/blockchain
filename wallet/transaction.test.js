@@ -20,15 +20,13 @@ describe("Transaction", () => {
 
   it("outputs the `amount` added to the recipient", () => {
     expect(
-      transcation.outputs
-        .find(output => output.address === recipient)
-        .amount
+      transcation.outputs.find(output => output.address === recipient).amount
     ).toEqual(amount);
   });
 
-  it ("inputsthe balance of the wallet", () => {
-    expect(transcation.input.amount).toEqual(wallet.balance)
-  })
+  it("inputsthe balance of the wallet", () => {
+    expect(transcation.input.amount).toEqual(wallet.balance);
+  });
 
   describe("transcating with an amount that exceeds the balance", () => {
     beforeEach(() => {

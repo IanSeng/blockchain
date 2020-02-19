@@ -8,7 +8,6 @@ class Blockchain {
   addBlock(data) {
     const block = Block.mineBlock(this.chain[this.chain.length - 1], data);
     this.chain.push(block);
-
     return block;
   }
 
@@ -26,7 +25,6 @@ class Blockchain {
         return false;
       }
     }
-
     return true;
   }
 
@@ -36,8 +34,7 @@ class Blockchain {
           return 
       } else if (!this.isValidChain(newChain)) {
           console.log("The receive chain is not valid")
-      }
-      
+      }     
       console.log('Replacing blockhain with the new chain.');
       this.chain = newChain;
   }

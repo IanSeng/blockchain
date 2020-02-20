@@ -37,5 +37,11 @@ describe("Transaction", () => {
     it("does not create the transaction", () => {
       expect(transcation).toEqual(undefined);
     });
+
+    it("validates a valid transaction", () => {
+      expect(Transcation.verifyTransaction(transcation)).toBe(true);
+    });
+
+    
   });
 });

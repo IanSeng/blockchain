@@ -42,6 +42,11 @@ describe("Transaction", () => {
       expect(Transcation.verifyTransaction(transcation)).toBe(true);
     });
 
+    it("invalidate a corrupt transaction", () => {
+      transcation.output[0].amount = 50000;
+      expect(Transcation.verifyTransaction).toBe(false)
+    });
+
     
   });
 });
